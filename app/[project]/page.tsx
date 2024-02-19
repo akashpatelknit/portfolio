@@ -5,6 +5,7 @@ import {
 } from '@/components/animation/following-pointer';
 import Contact from '@/components/contact';
 import { ProjectEdge, getPostDetails } from '@/service';
+import { Html } from 'next/document';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
@@ -44,7 +45,7 @@ const SingleProject = () => {
 					<div className=" flex flex-wrap gap-3 py-5">
 						{data[0]?.node.stacks.map((tech) => (
 							<span
-								className=" bg-gray-300 p-1 px-2 rounded-md"
+								className=" bg-gray-300 p-1 px-2 rounded-md w-fit"
 								key={tech.title}
 							>
 								{tech.title}
@@ -76,7 +77,7 @@ const SingleProject = () => {
 							DESIGN ROLE
 						</p>
 						{
-							<div className=" flex flex-row gap-3">
+							<div className="flex flex-wrap gap-3">
 								{data[0]?.node.designRoles.map((role) => (
 									<span
 										key={role.title}
@@ -93,7 +94,7 @@ const SingleProject = () => {
 							DEVELOPMENT ROLE
 						</p>
 						{
-							<div className=" flex flex-row gap-3">
+							<div className=" flex flex-wrap gap-3">
 								{data[0]?.node.developerRoles.map((role) => (
 									<span
 										key={role.title}
@@ -134,21 +135,21 @@ const SingleProject = () => {
 							alt="project-image"
 							width={980}
 							height={600}
+							className="hidden md:block lg:flex xl:flex 2xl:hidden"
+						/>
+					</div>
+					<div>
+						<Image
+							src={data[0]?.node.photo.url}
+							alt="project-image"
+							width={980}
+							height={600}
 							className="hidden md:block lg:hidden"
 						/>
 					</div>
-					{/* </FollowerPointerCard> */}
-					{/* <div>
-					<Image
-						src="https://assets-global.website-files.com/64a24a477b774d01d169b819/64a2ff2ef7e3b58f53d3a59e_Cover-p-1080.jpg"
-						alt="project-image"
-						width={980}
-						height={720}
-					/>
-				</div> */}
 				</div>
 			</div>
-			<div className=" max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 flex flex-col gap-10">
+			<div className=" max-w-6xl mx-auto px-0 md:px-6 lg:px-8 pt-20 flex flex-col gap-10">
 				<div>
 					<div className=" flex items-center gap-3">
 						<div className=" h-3 w-3 rounded-full  flex items-center ">
@@ -164,10 +165,8 @@ const SingleProject = () => {
 						</span>
 					</div>
 					<div className=" py-5">
-						<p>
-							College students in NYC want to spend less money on
-							eating out and instead prioritize health in their
-							diets.
+						<p className=" bg-green-200 p-3">
+							{data[0].node.description}
 						</p>
 					</div>
 				</div>
@@ -186,12 +185,13 @@ const SingleProject = () => {
 							Features
 						</span>
 					</div>
-					<div className=" py-5">
-						<p>
-							College students in NYC want to spend less money on
-							eating out and instead prioritize health in their
-							diets.
-						</p>
+					<div className=" py-5 ">
+						<div
+							dangerouslySetInnerHTML={{
+								__html: data[0].node.feature.html,
+							}}
+							className="p-3 px-10 bg-pink-200"
+						/>
 					</div>
 				</div>
 
@@ -210,11 +210,12 @@ const SingleProject = () => {
 						</span>
 					</div>
 					<div className="py-5">
-						<p>
-							College students in NYC want to spend less money on
-							eating out and instead prioritize health in their
-							diets.
-						</p>
+						<div
+							dangerouslySetInnerHTML={{
+								__html: data[0].node.challenges.html,
+							}}
+							className="p-3 px-10 bg-blue-100"
+						/>
 					</div>
 				</div>
 
@@ -233,11 +234,12 @@ const SingleProject = () => {
 						</span>
 					</div>
 					<div className=" py-5">
-						<p>
-							College students in NYC want to spend less money on
-							eating out and instead prioritize health in their
-							diets.
-						</p>
+						<div
+							dangerouslySetInnerHTML={{
+								__html: data[0].node.outcomes.html,
+							}}
+							className="p-3 px-10 bg-gray-200"
+						/>
 					</div>
 				</div>
 
@@ -256,21 +258,21 @@ const SingleProject = () => {
 						</span>
 					</div>
 					<div className="py-5">
-						<p>
-							College students in NYC want to spend less money on
-							eating out and instead prioritize health in their
-							diets.
-						</p>
+						<div
+							dangerouslySetInnerHTML={{
+								__html: data[0].node.learning.html,
+							}}
+							className="p-3 px-10 bg-yellow-100"
+						/>
 					</div>
 				</div>
 			</div>
-			<div className="py-5 md:pt-20">
+			{/* <div className="py-5 md:pt-20">
 				<p className=" text-xl font-medium text-center">
 					You have reached the end...why not take a look at my other
 					projects?
 				</p>
-			</div>
-			<Contact />
+			</div> */}
 		</>
 	);
 };

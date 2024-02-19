@@ -17,6 +17,16 @@ interface ProjectCardProps {
 	timeline: string;
 	card: { url: string }[];
 }
+const colors = {
+	red: 'red-500',
+	blue: 'blue-500',
+	green: 'green-500',
+	yellow: 'yellow-500',
+	purple: 'purple-500',
+	indigo: 'indigo-500',
+	pink: 'pink-500',
+	gray: 'gray-500',
+};
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
 	title,
@@ -32,7 +42,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 	timeline,
 	card,
 }) => {
-	
 	return (
 		<div className=" lg:h-screen flex flex-col md:flex-row gap-10 items-center my-10 py-10 lg:my-0 max-w-7xl mx-auto">
 			<div className="flex-2 text-xl w-full max-w-lg">

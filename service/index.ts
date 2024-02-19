@@ -19,6 +19,14 @@ export interface Project {
 	developerRoles: { title: string }[];
 	timeline: string;
 	card: { url: string }[];
+	challenges: { html: string };
+	challengesImg: { url: string }[];
+	feature: { html: string };
+	featureImg: { url: string }[];
+	learning: { html: string };
+	learningImg: { url: string }[];
+	outcomeImg: { url: string }[];
+	outcomes: { html: string };
 }
 
 export interface ProjectEdge {
@@ -65,6 +73,30 @@ export const getPosts = async (): Promise<ProjectEdge[]> => {
 						timeline
 						card {
 							url
+						}
+						challenges {
+							html
+						}
+						challengesImg {
+							url
+						}
+						feature {
+							html
+						}
+						featureImg {
+							url
+						}
+						learning {
+							html
+						}
+						learningImg {
+							url
+						}
+						outcomeImg {
+							url
+						}
+						outcomes {
+							html
 						}
 					}
 				}
@@ -115,6 +147,30 @@ export const getPostDetails = async (
 						timeline
 						card {
 							url
+						}
+						challenges {
+							html
+						}
+						challengesImg {
+							url
+						}
+						feature {
+							html
+						}
+						featureImg {
+							url
+						}
+						learning {
+							html
+						}
+						learningImg {
+							url
+						}
+						outcomeImg {
+							url
+						}
+						outcomes {
+							html
 						}
 					}
 				}
