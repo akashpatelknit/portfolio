@@ -5,7 +5,6 @@ import {
 } from '@/components/animation/following-pointer';
 import Contact from '@/components/contact';
 import { ProjectEdge, getPostDetails } from '@/service';
-import { Html } from 'next/document';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
