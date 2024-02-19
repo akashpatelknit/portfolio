@@ -267,12 +267,12 @@ const SingleProject = () => {
 					</div>
 				</div>
 			</div>
-			{/* <div className="py-5 md:pt-20">
+			<div className="py-5 md:pt-20">
 				<p className=" text-xl font-medium text-center">
 					You have reached the end...why not take a look at my other
 					projects?
 				</p>
-			</div> */}
+			</div>
 		</>
 	);
 };
