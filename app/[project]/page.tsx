@@ -54,33 +54,56 @@ const SingleProject = () => {
 
 					<div className="py-3">
 						<p className="font-semibold">TIMELINE</p>
-						<p>Mar - May 2023</p>
+						<p>{data[0].node.timeline}</p>
 					</div>
 					<div className="py-3 ">
 						<p className="font-semibold text-[1.125rem]">SECTOR</p>
-						<p>Foor, Health, Edu</p>
+						{
+							<div className=" flex flex-row gap-3">
+								{data[0]?.node.sectors.map((role) => (
+									<span
+										key={role.title}
+										className=" bg-red-300 w-fit px-2 py-1 rounded-md"
+									>
+										{role.title}
+									</span>
+								))}
+							</div>
+						}
 					</div>
 					<div className="py-3">
 						<p className="font-semibold text-[1.125rem]">
 							DESIGN ROLE
 						</p>
-						<p>Product, UX/UI, Research, Branding</p>
+						{
+							<div className=" flex flex-row gap-3">
+								{data[0]?.node.designRoles.map((role) => (
+									<span
+										key={role.title}
+										className=" bg-red-300 w-fit px-2 py-1 rounded-md"
+									>
+										{role.title}
+									</span>
+								))}
+							</div>
+						}
 					</div>
 					<div className="py-3">
 						<p className="font-semibold text-[1.125rem] pb-2">
 							DEVELOPMENT ROLE
 						</p>
-						<div className=" flex flex-row gap-3">
-							<span className=" bg-red-300 w-fit px-2 py-1 rounded-md">
-								Frontend
-							</span>
-							<span className=" bg-green-200 w-fit px-2 py-1 rounded-md">
-								Backend
-							</span>
-							<span className=" bg-yellow-300 w-fit px-2 py-1 rounded-md">
-								Fullstack
-							</span>
-						</div>
+						{
+							<div className=" flex flex-row gap-3">
+								{data[0]?.node.developerRoles.map((role) => (
+									<span
+										key={role.title}
+										className=" bg-red-300 w-fit px-2 py-1 rounded-md"
+									>
+										{role.title}
+									</span>
+								))}
+							</div>
+						}
 					</div>
 					<div className=" py-3">
 						<Link href="/projects" className=" ">

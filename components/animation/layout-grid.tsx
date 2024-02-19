@@ -116,7 +116,7 @@ const SelectedCard = ({ selected }: { selected: Card | null }) => {
 				}}
 				className="relative px-8 pb-4 z-[70]"
 			>
-				{selected?.content}
+				{/* {selected?.content} */}
 			</motion.div>
 		</div>
 	);

@@ -2,7 +2,39 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { LayoutGrid } from './layout-grid';
 
-export function LayoutGridDemo() {
+type Card = {
+	url: string;
+};
+
+export function LayoutGridDemo({ card }: { card: Card[] }) {
+	console.log('card', card);
+	const cards = [
+		{
+			id: 1,
+			content: <SkeletonOne />,
+			className: 'md:col-span-2',
+			thumbnail: card[0]?.url,
+		},
+		{
+			id: 2,
+			content: <SkeletonTwo />,
+			className: 'col-span-1',
+			thumbnail: card[1]?.url,
+		},
+		{
+			id: 3,
+			content: <SkeletonThree />,
+			className: 'col-span-1',
+			thumbnail: card[2]?.url,
+		},
+		{
+			id: 4,
+			content: <SkeletonFour />,
+			className: 'md:col-span-2',
+			thumbnail: card[3]?.url,
+		},
+	];
+
 	return (
 		<div className="md:h-screen py-20 w-full">
 			<LayoutGrid cards={cards} />
@@ -62,34 +94,3 @@ const SkeletonFour = () => {
 		</div>
 	);
 };
-
-const cards = [
-	{
-		id: 1,
-		content: <SkeletonOne />,
-		className: 'md:col-span-2',
-		thumbnail:
-			'https://images.unsplash.com/photo-1476231682828-37e571bc172f?q=80&w=3474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-	},
-	{
-		id: 2,
-		content: <SkeletonTwo />,
-		className: 'col-span-1',
-		thumbnail:
-			'https://images.unsplash.com/photo-1464457312035-3d7d0e0c058e?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-	},
-	{
-		id: 3,
-		content: <SkeletonThree />,
-		className: 'col-span-1',
-		thumbnail:
-			'https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-	},
-	{
-		id: 4,
-		content: <SkeletonFour />,
-		className: 'md:col-span-2',
-		thumbnail:
-			'https://images.unsplash.com/photo-1475070929565-c985b496cb9f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-	},
-];

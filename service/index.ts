@@ -14,6 +14,11 @@ export interface Project {
 	title: string;
 	slug: string;
 	stacks: { title: string }[];
+	sectors: { title: string }[];
+	designRoles: { title: string }[];
+	developerRoles: { title: string }[];
+	timeline: string;
+	card: { url: string }[];
 }
 
 export interface ProjectEdge {
@@ -47,6 +52,19 @@ export const getPosts = async (): Promise<ProjectEdge[]> => {
 						slug
 						stacks {
 							title
+						}
+						sectors {
+							title
+						}
+						designRoles {
+							title
+						}
+						developerRoles {
+							title
+						}
+						timeline
+						card {
+							url
 						}
 					}
 				}
@@ -84,6 +102,19 @@ export const getPostDetails = async (
 						slug
 						stacks {
 							title
+						}
+						sectors {
+							title
+						}
+						designRoles {
+							title
+						}
+						developerRoles {
+							title
+						}
+						timeline
+						card {
+							url
 						}
 					}
 				}

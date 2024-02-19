@@ -11,6 +11,11 @@ interface ProjectCardProps {
 	description: string;
 	stacks: { title: string }[];
 	slug: string;
+	designRoles: { title: string }[];
+	developerRoles: { title: string }[];
+	sectors: { title: string }[];
+	timeline: string;
+	card: { url: string }[];
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -21,9 +26,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 	description,
 	stacks,
 	slug,
+	designRoles,
+	developerRoles,
+	sectors,
+	timeline,
+	card,
 }) => {
+	
 	return (
-		<div className=" lg:h-screen flex flex-col md:flex-row gap-10 items-center my-10 lg:my-0 max-w-7xl mx-auto">
+		<div className=" lg:h-screen flex flex-col md:flex-row gap-10 items-center my-10 py-10 lg:my-0 max-w-7xl mx-auto">
 			<div className="flex-2 text-xl w-full max-w-lg">
 				<div className=" flex gap-3 items-center">
 					<div className=" h-4 w-4 bg-red-500 rounded-full"></div>
@@ -57,8 +68,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 				<Image src={photo} alt={title} width={1080} height={720} />
 			</div>
 			<div className=" flex-4 hidden lg:flex overflow-hidden w-full h-full relative">
-				
-					<LayoutGridDemo />
+				<LayoutGridDemo card={card} />
 			</div>
 		</div>
 	);
