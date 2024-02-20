@@ -1,4 +1,4 @@
-import { Linkedin, MailIcon } from 'lucide-react';
+import { Github, Linkedin, MailIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -19,7 +19,7 @@ export default function Navbar() {
 						/>
 					</div>
 					<div>
-						<Link href="/" className="">
+						<Link href="/freelance" className="">
 							Freelance Work
 						</Link>
 						<Image
@@ -31,12 +31,21 @@ export default function Navbar() {
 					</div>
 				</div>
 				<div className=" flex items-center justify-center gap-3">
-					<div>
-						<MailIcon />
-					</div>
-					<div>
+					<Link
+						href="https://github.com/akashpatelknit"
+						target="_black"
+					>
+						<Github />
+					</Link>
+					<Link
+						href="https://www.linkedin.com/in/akash-patel-9330aa201/"
+						target="_black"
+					>
 						<Linkedin />
-					</div>
+					</Link>
+					<Link href="mailto:akashpatel20606@gmail.com">
+						<MailIcon />
+					</Link>
 				</div>
 			</div>
 		</>

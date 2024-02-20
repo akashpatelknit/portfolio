@@ -27,6 +27,9 @@ export interface Project {
 	learningImg: { url: string }[];
 	outcomeImg: { url: string }[];
 	outcomes: { html: string };
+	githublink: string;
+	livelink: string;
+	categories: { title: string }[];
 }
 
 export interface ProjectEdge {
@@ -97,6 +100,11 @@ export const getPosts = async (): Promise<ProjectEdge[]> => {
 						}
 						outcomes {
 							html
+						}
+						githublink
+						livelink
+						categories {
+							title
 						}
 					}
 				}
@@ -171,6 +179,11 @@ export const getPostDetails = async (
 						}
 						outcomes {
 							html
+						}
+						githublink
+						livelink
+						categories {
+							title
 						}
 					}
 				}

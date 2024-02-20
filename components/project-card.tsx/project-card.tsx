@@ -64,7 +64,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 					))}
 				</div>
 				<div className=" max-w-xl ">
-					<p className="font-normal leading-[100%] ">{subtitle}</p>
+					<p className="font-normal">{subtitle}</p>
 				</div>
 				<div className="py-5 md:py-10">
 					<Link href={`/${slug}`} className=" underline">

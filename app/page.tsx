@@ -10,7 +10,10 @@ export default function Home() {
 	const [data, setData] = useState<ProjectEdge[]>();
 	useEffect(() => {
 		const fetcher = async () => {
-			const res = await getPosts();
+			let res = await getPosts();
+			res = res.filter(
+				(project) => project.node.categories[0].title === 'personal'
+			);
 			setData(res);
 			console.log(res);
 		};
@@ -22,7 +25,11 @@ export default function Home() {
 			<Hero />
 
 			{!data ? (
-				<SkeletonLoading />
+				<>
+					<SkeletonLoading />
+					<SkeletonLoading />
+					<SkeletonLoading />
+				</>
 			) : (
 				data?.map((project, index) => (
 					<ProjectCard
